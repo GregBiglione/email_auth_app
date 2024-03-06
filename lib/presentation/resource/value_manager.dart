@@ -4,4 +4,5 @@ class ValueManager {
   static const double v5 = 5.0;
   static const double v10 = 10.0;
   static const double v20 = 20.0;
+  static const double v100 = 100.0;
 }

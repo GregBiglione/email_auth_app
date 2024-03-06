@@ -10,7 +10,7 @@ class RegisterContent extends StatelessWidget {
         "Register Screen",
         style: TextStyle(
           fontSize: 20,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     );
