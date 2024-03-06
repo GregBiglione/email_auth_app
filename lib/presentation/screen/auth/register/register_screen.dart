@@ -12,9 +12,15 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManager.black,
-      body: const RegisterContent(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorManager.black,
+        body: const Center(
+          child: SingleChildScrollView(
+            child: RegisterContent(),
+          ),
+        ),
+      ),
     );
   }
 }
