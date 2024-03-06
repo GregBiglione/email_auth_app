@@ -9,6 +9,7 @@ class ColorManager {
   static Color disableColor = HexColor.fromHex("#E1DFDF");
   static Color grey30 = HexColor.fromHex("#C7C9C9");
   static Color grey60 = HexColor.fromHex("#959797");
+  static Color error = HexColor.fromHex("#FF021C");
 }
 
 extension HexColor on Color {
