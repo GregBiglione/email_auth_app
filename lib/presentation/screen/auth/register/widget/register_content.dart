@@ -1,6 +1,7 @@
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
+import 'package:email_auth_app/presentation/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 
 class RegisterContent extends StatefulWidget {
@@ -33,36 +34,17 @@ class _RegisterContentState extends State<RegisterContent> {
   // All content
   //----------------------------------------------------------------------------
 
-  Widget _getContentWidget() => Padding(
-    padding: const EdgeInsets.only(
-      left: ValueManager.v16,
-      right: ValueManager.v16,
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _registerTitleWidget(),
-        const SizedBox(
-          height: ValueManager.v16,
-        ),
-        _usernameWidget(),
-      ],
-    ),
-  );
-
-  //----------------------------------------------------------------------------
-  // Title
-  //----------------------------------------------------------------------------
-
-  Widget _registerTitleWidget() => Padding(
-    padding: const EdgeInsets.only(
-      left: ValueManager.v16,
-      right: ValueManager.v16,
-    ),
-    child: Text(
-      StringManager.registerTitle,
-      style: Theme.of(context).textTheme.displayMedium,
-    )
+  Widget _getContentWidget() => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      TitleWidget(
+        title: StringManager.registerTitle,
+      ),
+      const SizedBox(
+        height: ValueManager.v16,
+      ),
+      _usernameWidget(),
+    ],
   );
 
   //----------------------------------------------------------------------------
