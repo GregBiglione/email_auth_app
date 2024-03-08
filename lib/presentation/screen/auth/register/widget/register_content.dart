@@ -11,6 +11,19 @@ class RegisterContent extends StatefulWidget {
 }
 
 class _RegisterContentState extends State<RegisterContent> {
+  late FocusNode _usernameFocusNode;
+
+  @override
+  void initState() {
+    _usernameFocusNode = FocusNode();
+    _usernameFocusNode.addListener(_onFocusNodeEvent);
+    super.initState();
+  }
+
+  _onFocusNodeEvent() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return _getContentWidget();
@@ -21,7 +34,7 @@ class _RegisterContentState extends State<RegisterContent> {
   //----------------------------------------------------------------------------
 
   Widget _getContentWidget() => Padding(
-    padding: EdgeInsets.only(
+    padding: const EdgeInsets.only(
       left: ValueManager.v16,
       right: ValueManager.v16,
     ),
@@ -42,7 +55,7 @@ class _RegisterContentState extends State<RegisterContent> {
   //----------------------------------------------------------------------------
 
   Widget _registerTitleWidget() => Padding(
-    padding: EdgeInsets.only(
+    padding: const EdgeInsets.only(
       left: ValueManager.v16,
       right: ValueManager.v16,
     ),
@@ -57,19 +70,24 @@ class _RegisterContentState extends State<RegisterContent> {
   //----------------------------------------------------------------------------
 
   Widget _usernameWidget() => Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: ValueManager.v16,
         right: ValueManager.v16,
       ),
       child: TextFormField(
+        focusNode: _usernameFocusNode,
         keyboardType: TextInputType.name,
         style: Theme.of(context).textTheme.displaySmall,
         decoration: InputDecoration(
           hintText: StringManager.usernameHint,
-          hintStyle: Theme.of(context).textTheme.displaySmall,
+          hintStyle: _usernameFocusNode.hasFocus
+              ? Theme.of(context).textTheme.titleLarge
+              : Theme.of(context).textTheme.displaySmall,
           prefixIcon: Icon(
             Icons.person,
-            color: ColorManager.disableColor,
+            color: _usernameFocusNode.hasFocus
+                ? ColorManager.primary
+                : ColorManager.disableColor,
             size: ValueManager.v30,
           )
         ),
