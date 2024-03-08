@@ -26,7 +26,7 @@ ThemeData getApplicationTheme() {
       // Headline 2 ------------------------------------------------------------
       displaySmall: getRegularStyle(
         fontSize: FontSize.s16,
-        color: ColorManager.white,
+        color: ColorManager.disableColor,
       ),
 
       // Headline 3 ------------------------------------------------------------
@@ -38,6 +38,12 @@ ThemeData getApplicationTheme() {
       // Headline 4 ------------------------------------------------------------
       headlineSmall: getRegularStyle(
         color: ColorManager.grey60,
+      ),
+
+      // Headline 5 ------------------------------------------------------------
+      titleLarge: getRegularStyle(
+        fontSize: FontSize.s16,
+        color: ColorManager.primary,
       ),
 
       // Subtitle 1 ------------------------------------------------------------
@@ -77,28 +83,48 @@ ThemeData getApplicationTheme() {
         borderSide: BorderSide(
           color: ColorManager.disableColor,
           width: ValueManager.v2,
-        )
+        ),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(
+            ValueManager.v8,
+          ),
+        ),
       ),
       // Focused border --------------------------------------------------------
       focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: ColorManager.primary,
             width: ValueManager.v2,
-          )
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              ValueManager.v8,
+            ),
+          ),
       ),
       // Error border ----------------------------------------------------------
       errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: ColorManager.error,
             width: ValueManager.v2,
-          )
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              ValueManager.v8,
+            ),
+          ),
       ),
       // Focused error border --------------------------------------------------
       focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: ColorManager.error,
             width: ValueManager.v2,
-          )
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              ValueManager.v8,
+            ),
+          ),
       ),
     )
   );
