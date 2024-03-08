@@ -1,6 +1,6 @@
-import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
+import 'package:email_auth_app/presentation/widget/text_form_field_widget.dart';
 import 'package:email_auth_app/presentation/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -37,42 +37,19 @@ class _RegisterContentState extends State<RegisterContent> {
   Widget _getContentWidget() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      TitleWidget(
+      // Title -----------------------------------------------------------------
+      const TitleWidget(
         title: StringManager.registerTitle,
       ),
       const SizedBox(
         height: ValueManager.v16,
       ),
-      _usernameWidget(),
-    ],
-  );
-
-  //----------------------------------------------------------------------------
-  // Username
-  //----------------------------------------------------------------------------
-
-  Widget _usernameWidget() => Padding(
-      padding: const EdgeInsets.only(
-        left: ValueManager.v16,
-        right: ValueManager.v16,
-      ),
-      child: TextFormField(
+      // Username --------------------------------------------------------------
+      TextFormFieldWidget(
         focusNode: _usernameFocusNode,
-        keyboardType: TextInputType.name,
-        style: Theme.of(context).textTheme.displaySmall,
-        decoration: InputDecoration(
-          hintText: StringManager.usernameHint,
-          hintStyle: _usernameFocusNode.hasFocus
-              ? Theme.of(context).textTheme.titleLarge
-              : Theme.of(context).textTheme.displaySmall,
-          prefixIcon: Icon(
-            Icons.person,
-            color: _usernameFocusNode.hasFocus
-                ? ColorManager.primary
-                : ColorManager.disableColor,
-            size: ValueManager.v30,
-          )
-        ),
-      )
+        hintText: StringManager.usernameHint,
+        prefixIcon: Icons.person,
+      ),
+    ],
   );
 }
