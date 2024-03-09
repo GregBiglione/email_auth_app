@@ -10,7 +10,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final IconData prefixIcon;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
-  final IconButton? suffixIcon;
+  final GestureDetector? suffixIcon;
   final bool? isObscuredText;
 
   const TextFormFieldWidget({super.key, required this.focusNode,
