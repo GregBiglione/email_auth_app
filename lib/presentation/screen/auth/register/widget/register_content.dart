@@ -12,12 +12,18 @@ class RegisterContent extends StatefulWidget {
 }
 
 class _RegisterContentState extends State<RegisterContent> {
-  late FocusNode _usernameFocusNode;
+  List<FocusNode> focusNodeList = [
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+  ];
 
   @override
   void initState() {
-    _usernameFocusNode = FocusNode();
-    _usernameFocusNode.addListener(_onFocusNodeEvent);
+    for(var f in focusNodeList) {
+      f.addListener(_onFocusNodeEvent);
+    }
     super.initState();
   }
 
@@ -46,9 +52,39 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Username --------------------------------------------------------------
       TextFormFieldWidget(
-        focusNode: _usernameFocusNode,
+        focusNode: focusNodeList[0],
         hintText: StringManager.usernameHint,
         prefixIcon: Icons.person,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
+      ),
+      // Email -----------------------------------------------------------------
+      TextFormFieldWidget(
+        focusNode: focusNodeList[1],
+        hintText: StringManager.emailHint,
+        prefixIcon: Icons.email,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
+      ),
+      // Password --------------------------------------------------------------
+      TextFormFieldWidget(
+        focusNode: focusNodeList[2],
+        hintText: StringManager.passwordHint,
+        prefixIcon: Icons.lock,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
+      ),
+      // Confirm password ------------------------------------------------------
+      TextFormFieldWidget(
+        focusNode: focusNodeList[3],
+        hintText: StringManager.confirmPasswordHint,
+        prefixIcon: Icons.lock,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
       ),
     ],
   );
