@@ -83,11 +83,11 @@ class _RegisterContentState extends State<RegisterContent> {
         textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
         prefixIcon: Icons.lock,
-        suffixIcon: IconButton(
-          onPressed: () {
+        suffixIcon: GestureDetector(
+          onTap: () {
             togglePassword();
           },
-          icon: Icon(
+          child: Icon(
               isObscuredText
                   ? Icons.visibility
                   : Icons.visibility_off,
@@ -108,11 +108,11 @@ class _RegisterContentState extends State<RegisterContent> {
         textInputAction: TextInputAction.send,
         hintText: StringManager.confirmPasswordHint,
         prefixIcon: Icons.lock,
-        suffixIcon: IconButton(
-          onPressed: () {
+        suffixIcon: GestureDetector(
+          onTap: () {
             toggleConfirmPassword();
           },
-          icon: Icon(
+          child: Icon(
               isObscuredConfirmedText
                   ? Icons.visibility
                   : Icons.visibility_off,
