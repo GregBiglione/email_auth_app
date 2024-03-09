@@ -1,3 +1,4 @@
+import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
 import 'package:email_auth_app/presentation/widget/text_form_field_widget.dart';
@@ -18,6 +19,8 @@ class _RegisterContentState extends State<RegisterContent> {
     FocusNode(),
     FocusNode(),
   ];
+  bool isObscuredText = true;
+  bool isObscuredConfirmedText = true;
 
   @override
   void initState() {
@@ -74,26 +77,74 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Password --------------------------------------------------------------
       TextFormFieldWidget(
+        isObscuredText: isObscuredText,
         focusNode: focusNodeList[2],
         textInputType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
         prefixIcon: Icons.lock,
+        suffixIcon: IconButton(
+          onPressed: () {
+            togglePassword();
+          },
+          icon: Icon(
+              isObscuredText
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+            color: focusNodeList[2].hasFocus
+                ? ColorManager.primary
+                : ColorManager.disableColor
+          ),
+        ),
       ),
       const SizedBox(
         height: ValueManager.v10,
       ),
       // Confirm password ------------------------------------------------------
       TextFormFieldWidget(
+        isObscuredText: isObscuredConfirmedText,
         focusNode: focusNodeList[3],
         textInputType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.send,
         hintText: StringManager.confirmPasswordHint,
         prefixIcon: Icons.lock,
+        suffixIcon: IconButton(
+          onPressed: () {
+            toggleConfirmPassword();
+          },
+          icon: Icon(
+              isObscuredConfirmedText
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+              color: focusNodeList[3].hasFocus
+                  ? ColorManager.primary
+                  : ColorManager.disableColor
+          ),
+        ),
       ),
       const SizedBox(
         height: ValueManager.v10,
       ),
     ],
   );
+
+  //----------------------------------------------------------------------------
+  // Toggle password
+  //----------------------------------------------------------------------------
+
+  void togglePassword() {
+    setState(() {
+      isObscuredText = !isObscuredText;
+    });
+  }
+
+  //----------------------------------------------------------------------------
+  // Toggle confirm password
+  //----------------------------------------------------------------------------
+
+  void toggleConfirmPassword() {
+    setState(() {
+      isObscuredConfirmedText = !isObscuredConfirmedText;
+    });
+  }
 }
