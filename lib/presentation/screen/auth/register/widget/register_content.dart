@@ -53,6 +53,8 @@ class _RegisterContentState extends State<RegisterContent> {
       // Username --------------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[0],
+        textInputType: TextInputType.name,
+        textInputAction: TextInputAction.next,
         hintText: StringManager.usernameHint,
         prefixIcon: Icons.person,
       ),
@@ -62,6 +64,8 @@ class _RegisterContentState extends State<RegisterContent> {
       // Email -----------------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[1],
+        textInputType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
         hintText: StringManager.emailHint,
         prefixIcon: Icons.email,
       ),
@@ -71,6 +75,8 @@ class _RegisterContentState extends State<RegisterContent> {
       // Password --------------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[2],
+        textInputType: TextInputType.visiblePassword,
+        textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
         prefixIcon: Icons.lock,
       ),
@@ -80,6 +86,8 @@ class _RegisterContentState extends State<RegisterContent> {
       // Confirm password ------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[3],
+        textInputType: TextInputType.visiblePassword,
+        textInputAction: TextInputAction.send,
         hintText: StringManager.confirmPasswordHint,
         prefixIcon: Icons.lock,
       ),
