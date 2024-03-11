@@ -15,8 +15,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorManager.black,
-        body: SingleChildScrollView(
-          child: RegisterContent(),
+        body: const Center(
+          child: SingleChildScrollView(
+            child: RegisterContent(),
+          ),
         ),
       ),
     );
