@@ -8,4 +8,7 @@ class StringManager {
   static const String emailHint = "Email";
   static const String passwordHint = "Password";
   static const String confirmPasswordHint = "Confirm password";
+
+  // Error message -------------------------------------------------------------
+  static const String unknownError = "Unknown error";
 }
