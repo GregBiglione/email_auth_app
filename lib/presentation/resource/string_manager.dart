@@ -11,4 +11,8 @@ class StringManager {
 
   // Error message -------------------------------------------------------------
   static const String unknownError = "Unknown error";
+  static const String usernameError = "3 characters minimum";
+  static const String emailError = "Invalid email";
+  static const String passwordError = "8 characters minimum";
+  static const String confirmPasswordError = "Password and confirmed password are different";
 }
