@@ -46,6 +46,20 @@ class TextFormFieldWidget extends StatelessWidget {
             ),
           suffixIcon: suffixIcon,
           errorText: error,
+          // Error border ------------------------------------------------------
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: error.isEmpty
+                  ? ColorManager.disableColor
+                  : ColorManager.error,
+              width: ValueManager.v2,
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                ValueManager.v8,
+              ),
+            ),
+          ),
         ),
       )
     );

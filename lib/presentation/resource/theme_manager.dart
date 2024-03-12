@@ -108,18 +108,6 @@ ThemeData getApplicationTheme() {
             ),
           ),
       ),
-      // Error border ----------------------------------------------------------
-      errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorManager.error,
-            width: ValueManager.v2,
-          ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(
-              ValueManager.v8,
-            ),
-          ),
-      ),
       // Focused error border --------------------------------------------------
       focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
