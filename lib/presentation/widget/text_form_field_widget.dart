@@ -12,10 +12,13 @@ class TextFormFieldWidget extends StatelessWidget {
   final TextInputAction textInputAction;
   final GestureDetector? suffixIcon;
   final bool? isObscuredText;
+  final Function(String text) onChanged;
+  final String error;
 
   const TextFormFieldWidget({super.key, required this.focusNode,
     required this.hintText, required this.prefixIcon, required this.textInputType,
-    required this.textInputAction, this.suffixIcon, this.isObscuredText});
+    required this.textInputAction, this.suffixIcon, this.isObscuredText,
+    required this.onChanged, required this.error});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +26,9 @@ class TextFormFieldWidget extends StatelessWidget {
       widget: TextFormField(
         obscureText: isObscuredText ?? false,
         focusNode: focusNode,
+        onChanged: (value) {
+          onChanged(value);
+        },
         keyboardType: textInputType,
         textInputAction: textInputAction,
         style: Theme.of(context).textTheme.displaySmall,
@@ -39,6 +45,7 @@ class TextFormFieldWidget extends StatelessWidget {
               size: ValueManager.v30,
             ),
           suffixIcon: suffixIcon,
+          errorText: error,
         ),
       )
     );

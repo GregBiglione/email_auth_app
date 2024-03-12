@@ -1,13 +1,16 @@
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
+import 'package:email_auth_app/presentation/screen/auth/register/register_viewmodel.dart';
 import 'package:email_auth_app/presentation/widget/button_widget.dart';
 import 'package:email_auth_app/presentation/widget/text_form_field_widget.dart';
 import 'package:email_auth_app/presentation/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 
 class RegisterContent extends StatefulWidget {
-  const RegisterContent({super.key});
+  final RegisterViewModel viewModel;
+
+  const RegisterContent({super.key, required this.viewModel});
 
   @override
   State<RegisterContent> createState() => _RegisterContentState();
@@ -57,6 +60,10 @@ class _RegisterContentState extends State<RegisterContent> {
       // Username --------------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[0],
+        onChanged: (value) {
+          widget.viewModel.setUsername(value);
+        },
+        error: widget.viewModel.state.username.error,
         textInputType: TextInputType.name,
         textInputAction: TextInputAction.next,
         hintText: StringManager.usernameHint,
@@ -68,6 +75,10 @@ class _RegisterContentState extends State<RegisterContent> {
       // Email -----------------------------------------------------------------
       TextFormFieldWidget(
         focusNode: focusNodeList[1],
+        onChanged: (value) {
+          widget.viewModel.setEmail(value);
+        },
+        error: widget.viewModel.state.email.error,
         textInputType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         hintText: StringManager.emailHint,
@@ -80,6 +91,10 @@ class _RegisterContentState extends State<RegisterContent> {
       TextFormFieldWidget(
         isObscuredText: isObscuredText,
         focusNode: focusNodeList[2],
+        onChanged: (value) {
+          widget.viewModel.setPassword(value);
+        },
+        error: widget.viewModel.state.password.error,
         textInputType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
@@ -105,6 +120,10 @@ class _RegisterContentState extends State<RegisterContent> {
       TextFormFieldWidget(
         isObscuredText: isObscuredConfirmedText,
         focusNode: focusNodeList[3],
+        onChanged: (value) {
+          widget.viewModel.setConfirmPassword(value);
+        },
+        error: widget.viewModel.state.confirmPassword.error,
         textInputType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.send,
         hintText: StringManager.confirmPasswordHint,
