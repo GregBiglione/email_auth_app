@@ -15,4 +15,5 @@ class StringManager {
   static const String emailError = "Invalid email";
   static const String passwordError = "8 characters minimum";
   static const String confirmPasswordError = "Password and confirmed password are different";
+  static const String error = "Error: ";
 }
