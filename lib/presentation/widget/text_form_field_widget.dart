@@ -40,7 +40,9 @@ class TextFormFieldWidget extends StatelessWidget {
             prefixIcon: Icon(
               prefixIcon,
               color: focusNode.hasFocus
-                  ? ColorManager.primary
+                  ? error.isEmpty
+                    ? ColorManager.primary
+                    : ColorManager.error
                   : ColorManager.disableColor,
               size: ValueManager.v30,
             ),
@@ -51,6 +53,20 @@ class TextFormFieldWidget extends StatelessWidget {
             borderSide: BorderSide(
               color: error.isEmpty
                   ? ColorManager.disableColor
+                  : ColorManager.error,
+              width: ValueManager.v2,
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                ValueManager.v8,
+              ),
+            ),
+          ),
+          // Focused error border ----------------------------------------------
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: error.isEmpty
+                  ? ColorManager.primary
                   : ColorManager.error,
               width: ValueManager.v2,
             ),

@@ -108,18 +108,6 @@ ThemeData getApplicationTheme() {
             ),
           ),
       ),
-      // Focused error border --------------------------------------------------
-      focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorManager.error,
-            width: ValueManager.v2,
-          ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(
-              ValueManager.v8,
-            ),
-          ),
-      ),
     )
   );
 }
