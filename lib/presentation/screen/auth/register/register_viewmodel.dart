@@ -114,7 +114,7 @@ class RegisterViewModel extends ChangeNotifier {
   // ---------------------------------------------------------------------------
 
   void register() async {
-    if(_state.isValid()) {
+    if(state.isValid()) {
       // Loading ---------------------------------------------------------------
       _responseController.add(Loading());
 

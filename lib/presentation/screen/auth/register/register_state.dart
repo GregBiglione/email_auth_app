@@ -26,10 +26,10 @@ class RegisterState with _$RegisterState {
   );
 
   bool isValid() {
-    if(username.value.isNotEmpty || username.error.isNotEmpty
-        || email.value.isNotEmpty || email.error.isNotEmpty
-        || password.value.isNotEmpty || password.error.isNotEmpty
-        || confirmPassword.value.isNotEmpty || confirmPassword.error.isNotEmpty
+    if(username.value.isEmpty || username.error.isNotEmpty
+        || email.value.isEmpty || email.error.isNotEmpty
+        || password.value.isEmpty || password.error.isNotEmpty
+        || confirmPassword.value.isEmpty || confirmPassword.error.isNotEmpty
         || password.value != confirmPassword.value) {
       return false;
     }

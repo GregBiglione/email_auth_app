@@ -128,7 +128,7 @@ class _RegisterContentState extends State<RegisterContent> {
       // Register button -------------------------------------------------------
       ButtonWidget(
         onPressed: () {
-          print("Register clicked");
+          widget.viewModel.register();
         },
         backgroundColor: ColorManager.primary,
         width: ValueManager.infinity,
