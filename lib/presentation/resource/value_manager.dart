@@ -6,6 +6,7 @@ class ValueManager {
   static const double v10 = 10.0;
   static const double v16 = 16.0;
   static const double v20 = 20.0;
+  static const double v25 = 25.0;
   static const double v30 = 30.0;
   static const double v40 = 40.0;
   static const double v50 = 50.0;
