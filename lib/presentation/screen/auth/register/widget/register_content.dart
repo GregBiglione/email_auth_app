@@ -99,19 +99,9 @@ class _RegisterContentState extends State<RegisterContent> {
         textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
         prefixIcon: Icons.lock,
-        suffixIcon: GestureDetector(
-          onTap: () {
-            togglePassword();
-          },
-          child: Icon(
-              isObscuredText
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-            color: focusNodeList[2].hasFocus
-                ? ColorManager.primary
-                : ColorManager.disableColor
-          ),
-        ),
+        onTap: () {
+          togglePassword();
+        },
       ),
       const SizedBox(
         height: ValueManager.v10,
@@ -128,19 +118,9 @@ class _RegisterContentState extends State<RegisterContent> {
         textInputAction: TextInputAction.send,
         hintText: StringManager.confirmPasswordHint,
         prefixIcon: Icons.lock,
-        suffixIcon: GestureDetector(
-          onTap: () {
-            toggleConfirmPassword();
-          },
-          child: Icon(
-              isObscuredConfirmedText
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: focusNodeList[3].hasFocus
-                  ? ColorManager.primary
-                  : ColorManager.disableColor
-          ),
-        ),
+        onTap: () {
+          toggleConfirmPassword();
+        },
       ),
       const SizedBox(
         height: ValueManager.v10,

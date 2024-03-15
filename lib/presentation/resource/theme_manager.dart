@@ -80,9 +80,6 @@ ThemeData getApplicationTheme() {
       labelStyle: getMediumStyle(
         color: ColorManager.disableColor,
       ),
-      errorStyle: getRegularStyle(
-        color: ColorManager.error,
-      ),
 
       // Border ----------------------------------------------------------------
       enabledBorder: OutlineInputBorder(
@@ -108,6 +105,6 @@ ThemeData getApplicationTheme() {
             ),
           ),
       ),
-    )
+    ),
   );
 }
