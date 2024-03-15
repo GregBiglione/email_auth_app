@@ -2,6 +2,7 @@ import 'package:email_auth_app/presentation/widget/padding_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../resource/color_manager.dart';
+import '../resource/style_manager.dart';
 import '../resource/value_manager.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
@@ -10,15 +11,15 @@ class TextFormFieldWidget extends StatelessWidget {
   final IconData prefixIcon;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
-  final GestureDetector? suffixIcon;
   final bool? isObscuredText;
   final Function(String text) onChanged;
   final String error;
+  final Function()? onTap;
 
   const TextFormFieldWidget({super.key, required this.focusNode,
     required this.hintText, required this.prefixIcon, required this.textInputType,
-    required this.textInputAction, this.suffixIcon, this.isObscuredText,
-    required this.onChanged, required this.error});
+    required this.textInputAction, this.isObscuredText,
+    required this.onChanged, required this.error, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +47,25 @@ class TextFormFieldWidget extends StatelessWidget {
                   : ColorManager.disableColor,
               size: ValueManager.v30,
             ),
-          suffixIcon: suffixIcon,
+          suffixIcon: isObscuredText != null ? GestureDetector(
+            onTap: onTap,
+            child: Icon(
+                isObscuredText!
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+                color: focusNode.hasFocus
+                    ? error.isEmpty
+                        ? ColorManager.primary
+                        : ColorManager.error
+                    : ColorManager.disableColor
+            ),
+          ) : null,
           errorText: error,
+          errorStyle: getRegularStyle(
+            color:  error.isEmpty
+                ? ColorManager.primary
+                : ColorManager.error,
+          ),
           // Error border ------------------------------------------------------
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(
