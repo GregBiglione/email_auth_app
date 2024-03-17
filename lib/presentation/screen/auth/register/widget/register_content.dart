@@ -1,3 +1,4 @@
+import 'package:email_auth_app/app/function.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
@@ -32,6 +33,31 @@ class _RegisterContentState extends State<RegisterContent> {
   bool isNumber = false;
   bool isSpecialCharacter = false;
   double percentage = 0.0;
+
+  onChangedPassword(String password) {
+    setState(() {
+      is8Characters = false;
+      percentage = 0.0;
+      if(password.length >= 8 && containBlank(password)) is8Characters = true;
+      if(is8Characters == true) percentage += 0.2;
+
+      isUppercase = false;
+      if(containUppercase(password)) isUppercase = true;
+      if(isUppercase == true) percentage += 0.2;
+
+      isLowercase = false;
+      if(containLowercase(password)) isLowercase = true;
+      if(isLowercase == true) percentage += 0.2;
+
+      isNumber = false;
+      if(containNumber(password)) isNumber = true;
+      if(isNumber == true) percentage += 0.2;
+
+      isSpecialCharacter = false;
+      if(containSpecialCharacter(password)) isSpecialCharacter = true;
+      if(isSpecialCharacter == true) percentage += 0.2;
+    });
+  }
 
   @override
   void initState() {
@@ -100,6 +126,7 @@ class _RegisterContentState extends State<RegisterContent> {
         focusNode: focusNodeList[2],
         onChanged: (value) {
           widget.viewModel.setPassword(value);
+          onChangedPassword(value);
         },
         error: widget.viewModel.state.password.error,
         textInputType: TextInputType.visiblePassword,

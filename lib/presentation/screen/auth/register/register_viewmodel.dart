@@ -70,7 +70,7 @@ class RegisterViewModel extends ChangeNotifier {
     _responseController.add(Init());
     password = value;
 
-    if(value.length >= 8) {
+    if(isPasswordEnoughStrength(value)) {
       _state = _state.copyWith(
         password: ValidationItem(
           value: value,

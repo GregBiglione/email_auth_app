@@ -1,3 +1,4 @@
+import 'package:email_auth_app/app/function.dart';
 import 'package:email_auth_app/domain/model/user_data.dart';
 import 'package:email_auth_app/presentation/utils/validation_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,6 +30,7 @@ class RegisterState with _$RegisterState {
     if(username.value.isEmpty || username.error.isNotEmpty
         || email.value.isEmpty || email.error.isNotEmpty
         || password.value.isEmpty || password.error.isNotEmpty
+        || !isPasswordEnoughStrength(password.value)
         || confirmPassword.value.isEmpty || confirmPassword.error.isNotEmpty
         || password.value != confirmPassword.value) {
       return false;
