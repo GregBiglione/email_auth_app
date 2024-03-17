@@ -2,6 +2,7 @@ import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_viewmodel.dart';
+import 'package:email_auth_app/presentation/screen/auth/register/widget/password_strength_widget.dart';
 import 'package:email_auth_app/presentation/widget/button_widget.dart';
 import 'package:email_auth_app/presentation/widget/text_form_field_widget.dart';
 import 'package:email_auth_app/presentation/widget/title_widget.dart';
@@ -25,6 +26,12 @@ class _RegisterContentState extends State<RegisterContent> {
   ];
   bool isObscuredText = true;
   bool isObscuredConfirmedText = true;
+  bool is8Characters = false;
+  bool isUppercase = false;
+  bool isLowercase = false;
+  bool isNumber = false;
+  bool isSpecialCharacter = false;
+  double percentage = 0.0;
 
   @override
   void initState() {
@@ -102,6 +109,15 @@ class _RegisterContentState extends State<RegisterContent> {
         onTap: () {
           togglePassword();
         },
+      ),
+      // Progress bar & chevron ------------------------------------------------
+      PasswordStrengthWidget(
+        is8Characters: is8Characters,
+        isUppercase: isUppercase,
+        isLowercase: isLowercase,
+        isNumber: isNumber,
+        isSpecialCharacter: isSpecialCharacter,
+        percentage: percentage,
       ),
       const SizedBox(
         height: ValueManager.v10,
