@@ -1,3 +1,4 @@
+import 'package:email_auth_app/app/regex.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/route_manager.dart';
 import 'package:email_validator/email_validator.dart';
@@ -32,3 +33,29 @@ void goToHomeScreen(BuildContext context) => WidgetsBinding.instance
         Routes.homeRoute,
       );
 });
+
+// Password strength check -----------------------------------------------------
+
+bool isPasswordEnoughStrength(String password) {
+  return Regex.password.hasMatch(password);
+}
+
+bool containUppercase(String password) {
+  return Regex.uppercase.hasMatch(password);
+}
+
+bool containLowercase(String password) {
+  return Regex.lowercase.hasMatch(password);
+}
+
+bool containNumber(String password) {
+  return Regex.number.hasMatch(password);
+}
+
+bool containSpecialCharacter(String password) {
+  return Regex.specialCharacter.hasMatch(password);
+}
+
+bool containBlank(String password) {
+  return !Regex.blankCharacter.hasMatch(password);
+}
