@@ -1,9 +1,10 @@
+import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
 import 'package:email_auth_app/presentation/widget/padding_widget.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
-  final Function() onPressed;
+  final Function()? onPressed;
   final Color backgroundColor;
   final double width;
   final double height;
@@ -21,6 +22,7 @@ class ButtonWidget extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
+          disabledBackgroundColor: ColorManager.disableColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               ValueManager.v30,
