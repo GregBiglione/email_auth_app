@@ -16,6 +16,20 @@ class RegisterViewModel extends ChangeNotifier {
   final AuthUseCase _authUseCase;
   final StreamController<StateRender> _responseController = StreamController();
   String password = "";
+  List<FocusNode> focusNodeList = [
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+  ];
+  bool isObscuredText = true;
+  bool isObscuredConfirmedText = true;
+  bool is8Characters = false;
+  bool isUppercase = false;
+  bool isLowercase = false;
+  bool isNumber = false;
+  bool isSpecialCharacter = false;
+  double percentage = 0.0;
 
   RegisterViewModel(this._authUseCase);
 

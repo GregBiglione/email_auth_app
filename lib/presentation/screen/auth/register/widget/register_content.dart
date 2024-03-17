@@ -19,49 +19,35 @@ class RegisterContent extends StatefulWidget {
 }
 
 class _RegisterContentState extends State<RegisterContent> {
-  List<FocusNode> focusNodeList = [
-    FocusNode(),
-    FocusNode(),
-    FocusNode(),
-    FocusNode(),
-  ];
-  bool isObscuredText = true;
-  bool isObscuredConfirmedText = true;
-  bool is8Characters = false;
-  bool isUppercase = false;
-  bool isLowercase = false;
-  bool isNumber = false;
-  bool isSpecialCharacter = false;
-  double percentage = 0.0;
 
   onChangedPassword(String password) {
     setState(() {
-      is8Characters = false;
-      percentage = 0.0;
-      if(password.length >= 8 && containBlank(password)) is8Characters = true;
-      if(is8Characters == true) percentage += 0.2;
+      widget.viewModel.is8Characters = false;
+      widget.viewModel.percentage = 0.0;
+      if(password.length >= 8 && containBlank(password)) widget.viewModel.is8Characters = true;
+      if(widget.viewModel.is8Characters == true) widget.viewModel.percentage += 0.2;
 
-      isUppercase = false;
-      if(containUppercase(password)) isUppercase = true;
-      if(isUppercase == true) percentage += 0.2;
+      widget.viewModel.isUppercase = false;
+      if(containUppercase(password)) widget.viewModel.isUppercase = true;
+      if(widget.viewModel.isUppercase == true) widget.viewModel.percentage += 0.2;
 
-      isLowercase = false;
-      if(containLowercase(password)) isLowercase = true;
-      if(isLowercase == true) percentage += 0.2;
+      widget.viewModel.isLowercase = false;
+      if(containLowercase(password)) widget.viewModel.isLowercase = true;
+      if(widget.viewModel.isLowercase == true) widget.viewModel.percentage += 0.2;
 
-      isNumber = false;
-      if(containNumber(password)) isNumber = true;
-      if(isNumber == true) percentage += 0.2;
+      widget.viewModel.isNumber = false;
+      if(containNumber(password)) widget.viewModel.isNumber = true;
+      if(widget.viewModel.isNumber == true) widget.viewModel.percentage += 0.2;
 
-      isSpecialCharacter = false;
-      if(containSpecialCharacter(password)) isSpecialCharacter = true;
-      if(isSpecialCharacter == true) percentage += 0.2;
+      widget.viewModel.isSpecialCharacter = false;
+      if(containSpecialCharacter(password)) widget.viewModel.isSpecialCharacter = true;
+      if(widget.viewModel.isSpecialCharacter == true) widget.viewModel.percentage += 0.2;
     });
   }
 
   @override
   void initState() {
-    for(var f in focusNodeList) {
+    for(var f in widget.viewModel.focusNodeList) {
       f.addListener(_onFocusNodeEvent);
     }
     super.initState();
@@ -92,7 +78,7 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Username --------------------------------------------------------------
       TextFormFieldWidget(
-        focusNode: focusNodeList[0],
+        focusNode: widget.viewModel.focusNodeList[0],
         onChanged: (value) {
           widget.viewModel.setUsername(value);
         },
@@ -107,7 +93,7 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Email -----------------------------------------------------------------
       TextFormFieldWidget(
-        focusNode: focusNodeList[1],
+        focusNode: widget.viewModel.focusNodeList[1],
         onChanged: (value) {
           widget.viewModel.setEmail(value);
         },
@@ -122,8 +108,8 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Password --------------------------------------------------------------
       TextFormFieldWidget(
-        isObscuredText: isObscuredText,
-        focusNode: focusNodeList[2],
+        isObscuredText: widget.viewModel.isObscuredText,
+        focusNode: widget.viewModel.focusNodeList[2],
         onChanged: (value) {
           widget.viewModel.setPassword(value);
           onChangedPassword(value);
@@ -139,20 +125,20 @@ class _RegisterContentState extends State<RegisterContent> {
       ),
       // Progress bar & chevron ------------------------------------------------
       PasswordStrengthWidget(
-        is8Characters: is8Characters,
-        isUppercase: isUppercase,
-        isLowercase: isLowercase,
-        isNumber: isNumber,
-        isSpecialCharacter: isSpecialCharacter,
-        percentage: percentage,
+        is8Characters: widget.viewModel.is8Characters,
+        isUppercase: widget.viewModel.isUppercase,
+        isLowercase: widget.viewModel.isLowercase,
+        isNumber: widget.viewModel.isNumber,
+        isSpecialCharacter: widget.viewModel.isSpecialCharacter,
+        percentage: widget.viewModel.percentage,
       ),
       const SizedBox(
         height: ValueManager.v10,
       ),
       // Confirm password ------------------------------------------------------
       TextFormFieldWidget(
-        isObscuredText: isObscuredConfirmedText,
-        focusNode: focusNodeList[3],
+        isObscuredText: widget.viewModel.isObscuredConfirmedText,
+        focusNode: widget.viewModel.focusNodeList[3],
         onChanged: (value) {
           widget.viewModel.setConfirmPassword(value);
         },
@@ -188,7 +174,7 @@ class _RegisterContentState extends State<RegisterContent> {
 
   void togglePassword() {
     setState(() {
-      isObscuredText = !isObscuredText;
+      widget.viewModel.isObscuredText = !widget.viewModel.isObscuredText;
     });
   }
 
@@ -198,7 +184,7 @@ class _RegisterContentState extends State<RegisterContent> {
 
   void toggleConfirmPassword() {
     setState(() {
-      isObscuredConfirmedText = !isObscuredConfirmedText;
+      widget.viewModel.isObscuredConfirmedText = !widget.viewModel.isObscuredConfirmedText;
     });
   }
 }
