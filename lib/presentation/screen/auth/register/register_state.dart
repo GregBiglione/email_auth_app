@@ -31,7 +31,7 @@ class RegisterState with _$RegisterState {
         || email.value.isEmpty || email.error.isNotEmpty
         || password.value.isEmpty || password.error.isNotEmpty
         || !isPasswordEnoughStrength(password.value)
-        || containBlank(password.value)
+        || !containBlank(password.value)
         || confirmPassword.value.isEmpty || confirmPassword.error.isNotEmpty
         || password.value != confirmPassword.value) {
       return false;
