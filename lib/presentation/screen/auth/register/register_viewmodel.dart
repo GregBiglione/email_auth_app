@@ -5,6 +5,7 @@ import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_state.dart';
 import 'package:email_auth_app/presentation/utils/validation_item.dart';
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 import '../../../../app/function.dart';
 import '../../../../domain/utils/state_render.dart';
@@ -14,7 +15,7 @@ class RegisterViewModel extends ChangeNotifier {
   RegisterState _state = const RegisterState();
   // Use case ------------------------------------------------------------------
   final AuthUseCase _authUseCase;
-  final StreamController<StateRender> _responseController = StreamController();
+  final StreamController<StateRender> _responseController = BehaviorSubject();
   String password = "";
   List<FocusNode> focusNodeList = [
     FocusNode(),
