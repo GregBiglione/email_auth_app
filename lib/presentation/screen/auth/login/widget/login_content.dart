@@ -1,3 +1,4 @@
+import 'package:email_auth_app/presentation/screen/auth/login/login_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../resource/color_manager.dart';
@@ -10,7 +11,9 @@ import '../../../../widget/text_form_field_widget.dart';
 import '../../../../widget/title_widget.dart';
 
 class LoginContent extends StatefulWidget {
-  const LoginContent({super.key});
+  final LoginViewModel viewModel;
+
+  const LoginContent({super.key, required this.viewModel});
 
   @override
   State<LoginContent> createState() => _LoginContentState();
@@ -39,11 +42,11 @@ class _LoginContentState extends State<LoginContent> {
       ),
       // Email -----------------------------------------------------------------
       TextFormFieldWidget(
-        focusNode: FocusNode(),//widget.viewModel.focusNodeList[1],
+        focusNode: widget.viewModel.focusNodeList[0],
         onChanged: (value) {
-          //widget.viewModel.setEmail(value);
+          widget.viewModel.setEmail(value);
         },
-        error: "Error email",//widget.viewModel.state.email.error,
+        error: widget.viewModel.state.email.error,
         textInputType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         hintText: StringManager.emailHint,
@@ -54,12 +57,12 @@ class _LoginContentState extends State<LoginContent> {
       ),
       // Password --------------------------------------------------------------
       TextFormFieldWidget(
-        //isObscuredText: widget.viewModel.isObscuredText,
-        focusNode: FocusNode(),//widget.viewModel.focusNodeList[2],
+        isObscuredText: widget.viewModel.isObscuredText,
+        focusNode: widget.viewModel.focusNodeList[1],
         onChanged: (value) {
-          //widget.viewModel.setPassword(value);
+          widget.viewModel.setPassword(value);
         },
-        error: "Error password",//widget.viewModel.state.password.error,
+        error: widget.viewModel.state.password.error,
         textInputType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
         hintText: StringManager.passwordHint,
@@ -73,9 +76,9 @@ class _LoginContentState extends State<LoginContent> {
       ),
       // Login button ----------------------------------------------------------
       ButtonWidget(
-        onPressed: /*widget.viewModel.state.isValid() == true
-            ? widget.viewModel.register
-            : */null,
+        onPressed: widget.viewModel.state.isValid() == true
+            ? widget.viewModel.login
+            : null,
         backgroundColor: ColorManager.primary,
         width: ValueManager.infinity,
         height: ValueManager.v50,
