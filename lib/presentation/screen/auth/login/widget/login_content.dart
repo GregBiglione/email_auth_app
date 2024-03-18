@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../resource/color_manager.dart';
+import '../../../../resource/route_manager.dart';
 import '../../../../resource/string_manager.dart';
 import '../../../../resource/value_manager.dart';
 import '../../../../widget/button_widget.dart';
+import '../../../../widget/clickable_link_widget.dart';
 import '../../../../widget/text_form_field_widget.dart';
 import '../../../../widget/title_widget.dart';
 
@@ -79,6 +81,15 @@ class _LoginContentState extends State<LoginContent> {
         height: ValueManager.v50,
         buttonText: StringManager.loginTitle,
         textStyle: Theme.of(context).textTheme.titleMedium!,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
+      ),
+      const ClickableLinkWidget(
+        messagePart1: StringManager.registerMessage1,
+        messagePart2: StringManager.registerMessage2,
+        route: Routes.registerRoute,
+        mainAxisAlignment: MainAxisAlignment.center,
       ),
     ],
   );

@@ -1,10 +1,12 @@
 import 'package:email_auth_app/app/function.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
+import 'package:email_auth_app/presentation/resource/route_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_viewmodel.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/widget/password_strength_widget.dart';
 import 'package:email_auth_app/presentation/widget/button_widget.dart';
+import 'package:email_auth_app/presentation/widget/clickable_link_widget.dart';
 import 'package:email_auth_app/presentation/widget/text_form_field_widget.dart';
 import 'package:email_auth_app/presentation/widget/title_widget.dart';
 import 'package:flutter/material.dart';
@@ -164,6 +166,15 @@ class _RegisterContentState extends State<RegisterContent> {
         height: ValueManager.v50,
         buttonText: StringManager.registerTitle,
         textStyle: Theme.of(context).textTheme.titleMedium!,
+      ),
+      const SizedBox(
+        height: ValueManager.v10,
+      ),
+      const ClickableLinkWidget(
+        messagePart1: StringManager.loginMessage1,
+        messagePart2: StringManager.loginMessage2,
+        route: Routes.loginRoute,
+        mainAxisAlignment: MainAxisAlignment.center,
       ),
     ],
   );
