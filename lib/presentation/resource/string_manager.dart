@@ -23,4 +23,7 @@ class StringManager {
   static const String lowercase = "1 lowercase";
   static const String number = "1 number";
   static const String specialCharacter = "1 special character";
+
+  // Login screen --------------------------------------------------------------
+  static const String loginTitle = "Login";
 }
