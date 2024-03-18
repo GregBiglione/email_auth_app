@@ -8,6 +8,8 @@ class StringManager {
   static const String emailHint = "Email";
   static const String passwordHint = "Password";
   static const String confirmPasswordHint = "Confirm password";
+  static const String loginMessage1 = "Already have an account? ";
+  static const String loginMessage2 = "Log in";
 
   // Error message -------------------------------------------------------------
   static const String unknownError = "Unknown error";
@@ -26,4 +28,6 @@ class StringManager {
 
   // Login screen --------------------------------------------------------------
   static const String loginTitle = "Login";
+  static const String registerMessage1 = "Don't have an account? ";
+  static const String registerMessage2 = "Register";
 }
