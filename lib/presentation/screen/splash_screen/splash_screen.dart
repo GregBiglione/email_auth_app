@@ -20,13 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Timer? timer;
 
   //----------------------------------------------------------------------------
-  // Go to Register screen
+  // Go to Login screen
   //----------------------------------------------------------------------------
 
-  _goToRegisterScreen() {
+  _goToLoginScreen() {
     Navigator.pushReplacementNamed(
       context,
-      Routes.registerRoute,
+      Routes.loginRoute,
     );
   }
 
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _startTimer() {
     timer = Timer(
       const Duration(seconds: 2),
-      _goToRegisterScreen
+      _goToLoginScreen
     );
   }
 
