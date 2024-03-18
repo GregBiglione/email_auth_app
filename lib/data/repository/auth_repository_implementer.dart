@@ -22,4 +22,18 @@ class AuthRepositoryImplementer implements AuthRepository {
       return Error(e.message ?? StringManager.unknownError);
     }
   }
+
+  @override
+  Future<StateRender> login(String email, String password) async {
+    try {
+      UserCredential credential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      return Success(credential);
+    } on FirebaseAuthException catch (e) {
+      return Error(e.message ?? StringManager.unknownError);
+    }
+  }
 }
