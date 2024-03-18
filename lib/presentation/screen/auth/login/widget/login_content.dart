@@ -26,6 +26,7 @@ class _LoginContentState extends State<LoginContent> {
 
   Widget _getContentWidget() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
       // Title -----------------------------------------------------------------
       const TitleWidget(

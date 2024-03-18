@@ -1,5 +1,6 @@
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
+import 'package:email_auth_app/presentation/screen/auth/login/login_screen.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_screen.dart';
 import 'package:email_auth_app/presentation/screen/home/home_screen.dart';
 import 'package:email_auth_app/presentation/screen/splash_screen/splash_screen.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 class Routes {
   static const splashRoute = "/";
   static const registerRoute = "/register";
+  static const loginRoute = "/login";
   static const homeRoute = "/home";
 }
 
@@ -18,6 +20,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.loginRoute:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
