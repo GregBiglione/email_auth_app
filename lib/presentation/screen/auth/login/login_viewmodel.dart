@@ -21,6 +21,7 @@ class LoginViewModel extends ChangeNotifier {
     FocusNode(),
   ];
   bool isObscuredText = true;
+  bool isErrorDisplayed = false;
 
   LoginViewModel(this._authUseCase);
 

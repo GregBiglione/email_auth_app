@@ -31,6 +31,7 @@ class RegisterViewModel extends ChangeNotifier {
   bool isNumber = false;
   bool isSpecialCharacter = false;
   double percentage = 0.0;
+  bool isErrorDisplayed = false;
 
   RegisterViewModel(this._authUseCase);
 

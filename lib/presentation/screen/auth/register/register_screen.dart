@@ -26,6 +26,7 @@ class RegisterScreen extends StatelessWidget {
               stream: viewModel.response,
               builder: (context, snapshot) {
                 final response = snapshot.data;
+                viewModel.isErrorDisplayed = false;
 
                 if(response is Success) {
                   logger.i("User data: $response");
@@ -38,8 +39,11 @@ class RegisterScreen extends StatelessWidget {
                 else if(response is Error) {
                   final data = response;
                   String error = StringManager.error + data.error;
+                  viewModel.isErrorDisplayed = !viewModel.isErrorDisplayed;
 
-                  errorToast(context, error);
+                  if (viewModel.isErrorDisplayed = true) {
+                    delayedErrorToast(context, error, 1000);
+                  }
                 }
 
                 return RegisterContent(viewModel: viewModel,);

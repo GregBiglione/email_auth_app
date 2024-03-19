@@ -90,8 +90,9 @@ class _LoginContentState extends State<LoginContent> {
       // Login button ----------------------------------------------------------
       ButtonWidget(
         onPressed: widget.viewModel.state.isValid() == true
-            ? widget.viewModel.login
-            : null,
+            && widget.viewModel.isErrorDisplayed == false
+              ? widget.viewModel.login
+              : null,
         backgroundColor: ColorManager.primary,
         width: ValueManager.infinity,
         height: ValueManager.v50,
