@@ -159,8 +159,9 @@ class _RegisterContentState extends State<RegisterContent> {
       // Register button -------------------------------------------------------
       ButtonWidget(
         onPressed: widget.viewModel.state.isValid() == true
-            ? widget.viewModel.register
-            : null,
+            && widget.viewModel.isErrorDisplayed == false
+              ? widget.viewModel.register
+              : null,
         backgroundColor: ColorManager.primary,
         width: ValueManager.infinity,
         height: ValueManager.v50,

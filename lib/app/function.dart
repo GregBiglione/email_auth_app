@@ -24,6 +24,17 @@ void errorToast(BuildContext context, String message) => toastification.show(
   backgroundColor: ColorManager.error,
 );
 
+// Delayed toast ---------------------------------------------------------------
+
+void delayedErrorToast(BuildContext context, String message, int duration) {
+  Future.delayed(
+    Duration(milliseconds: duration),
+    () {
+      errorToast(context, message);
+    }
+  );
+}
+
 // Go to home screen -----------------------------------------------------------
 
 void goToHomeScreen(BuildContext context) => WidgetsBinding.instance
