@@ -20,6 +20,19 @@ class LoginContent extends StatefulWidget {
 }
 
 class _LoginContentState extends State<LoginContent> {
+
+  @override
+  void initState() {
+    for(var f in widget.viewModel.focusNodeList) {
+      f.addListener(_onFocusNodeEvent);
+    }
+    super.initState();
+  }
+
+  _onFocusNodeEvent() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return _getContentWidget();
@@ -103,7 +116,7 @@ class _LoginContentState extends State<LoginContent> {
 
   void togglePassword() {
     setState(() {
-      //widget.viewModel.isObscuredText = !widget.viewModel.isObscuredText;
+      widget.viewModel.isObscuredText = !widget.viewModel.isObscuredText;
     });
   }
 
