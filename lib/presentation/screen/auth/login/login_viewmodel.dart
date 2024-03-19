@@ -53,7 +53,7 @@ class LoginViewModel extends ChangeNotifier {
   void setPassword(String value) {
     _responseController.add(Init());
 
-    if(isPasswordEnoughStrength(value)) {
+    if(value.isNotEmpty) {
       _state = _state.copyWith(
         password: ValidationItem(
           value: value,
@@ -64,7 +64,7 @@ class LoginViewModel extends ChangeNotifier {
     else {
       _state = _state.copyWith(
         password: const ValidationItem(
-          error: StringManager.passwordError,
+          error: StringManager.emptyPasswordError,
         ),
       );
     }
