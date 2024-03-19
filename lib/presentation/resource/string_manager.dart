@@ -31,4 +31,10 @@ class StringManager {
   static const String loginTitle = "Login";
   static const String registerMessage1 = "Don't have an account? ";
   static const String registerMessage2 = "Register";
+  static const String forgotPasswordMessage = "Forgot password?";
+
+  // Forgot password screen ----------------------------------------------------
+  static const String forgotPasswordTitle = "Forgot password";
+  static const String sendEmail = "Send email";
+
 }
