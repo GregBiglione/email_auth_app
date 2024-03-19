@@ -68,6 +68,15 @@ class _LoginContentState extends State<LoginContent> {
       const SizedBox(
         height: ValueManager.v10,
       ),
+      // Forgot password link --------------------------------------------------
+      const ClickableLinkWidget(
+        messagePart2: StringManager.forgotPasswordMessage,
+        route: Routes.forgotPasswordRoute,
+        mainAxisAlignment: MainAxisAlignment.end,
+      ),
+      const SizedBox(
+        height: ValueManager.v2,
+      ),
       // Password --------------------------------------------------------------
       TextFormFieldWidget(
         isObscuredText: widget.viewModel.isObscuredText,

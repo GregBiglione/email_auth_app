@@ -1,5 +1,6 @@
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
+import 'package:email_auth_app/presentation/screen/auth/forgot_password/forgot_password_screen.dart';
 import 'package:email_auth_app/presentation/screen/auth/login/login_screen.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_screen.dart';
 import 'package:email_auth_app/presentation/screen/home/home_screen.dart';
@@ -10,6 +11,7 @@ class Routes {
   static const splashRoute = "/";
   static const registerRoute = "/register";
   static const loginRoute = "/login";
+  static const forgotPasswordRoute = "/forgotPassword";
   static const homeRoute = "/home";
 }
 
@@ -22,6 +24,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.forgotPasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
