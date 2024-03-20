@@ -1,3 +1,4 @@
+import 'package:email_auth_app/presentation/screen/auth/forgot_password/forgot_password_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../resource/color_manager.dart';
@@ -8,7 +9,9 @@ import '../../../../widget/text_form_field_widget.dart';
 import '../../../../widget/title_widget.dart';
 
 class ForgotPasswordContent extends StatefulWidget {
-  const ForgotPasswordContent({super.key});
+  final ForgotPasswordViewModel viewModel;
+
+  const ForgotPasswordContent({super.key, required this.viewModel});
 
   @override
   State<ForgotPasswordContent> createState() => _ForgotPasswordContentState();
@@ -37,11 +40,11 @@ class _ForgotPasswordContentState extends State<ForgotPasswordContent> {
       ),
       // Email -----------------------------------------------------------------
       TextFormFieldWidget(
-        focusNode: FocusNode(),//widget.viewModel.focusNodeList[0],
+        focusNode: widget.viewModel.focusNode,
         onChanged: (value) {
-          //widget.viewModel.setEmail(value);
+          widget.viewModel.setEmail(value);
         },
-        error: "Error email",//widget.viewModel.state.email.error,
+        error: widget.viewModel.state.email.error,
         textInputType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         hintText: StringManager.emailHint,
@@ -52,10 +55,10 @@ class _ForgotPasswordContentState extends State<ForgotPasswordContent> {
       ),
       // Send email button -----------------------------------------------------
       ButtonWidget(
-        onPressed: /*widget.viewModel.state.isValid() == true
+        onPressed: widget.viewModel.state.isValid() == true
             && widget.viewModel.isErrorDisplayed == false
-            ? widget.viewModel.login
-            :*/ null,
+            ? widget.viewModel.resetPassword
+            : null,
         backgroundColor: ColorManager.primary,
         width: ValueManager.infinity,
         height: ValueManager.v50,
