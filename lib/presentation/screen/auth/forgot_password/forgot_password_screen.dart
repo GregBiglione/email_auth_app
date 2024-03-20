@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/forgot_password/widget/forgot_password_content.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,20 @@ class ForgotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ColorManager.black,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Platform.isAndroid
+                  ? Icons.arrow_back
+                  : Icons.arrow_back_ios,
+              color: ColorManager.white,
+            ),
+          ),
+        ),
         backgroundColor: ColorManager.black,
         body: const Center(
           child: ForgotPasswordContent(),
