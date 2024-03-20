@@ -24,6 +24,18 @@ void errorToast(BuildContext context, String message) => toastification.show(
   backgroundColor: ColorManager.error,
 );
 
+// Success toast ---------------------------------------------------------------
+
+void successToast(BuildContext context, String message) => toastification.show(
+  context: context,
+  title: Text(message),
+  autoCloseDuration: const Duration(seconds: 2),
+  type: ToastificationType.success,
+  style: ToastificationStyle.fillColored,
+  showProgressBar: false,
+  alignment: Alignment.bottomCenter,
+);
+
 // Delayed toast ---------------------------------------------------------------
 
 void delayedErrorToast(BuildContext context, String message, int duration) {
