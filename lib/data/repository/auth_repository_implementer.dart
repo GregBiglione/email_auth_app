@@ -36,4 +36,17 @@ class AuthRepositoryImplementer implements AuthRepository {
       return Error(e.message ?? StringManager.unknownError);
     }
   }
+
+  @override
+  Future<StateRender> resetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(
+        email: email,
+      );
+
+      return Success(StringManager.emailSentSuccessfully);
+    } on FirebaseAuthException catch (e) {
+      return Error(e.message ?? StringManager.unknownError);
+    }
+  }
 }
