@@ -19,6 +19,16 @@ class ForgotPasswordContent extends StatefulWidget {
 
 class _ForgotPasswordContentState extends State<ForgotPasswordContent> {
   @override
+  void initState() {
+    widget.viewModel.focusNode.addListener(_onFocusNodeEvent);
+    super.initState();
+  }
+
+  _onFocusNodeEvent() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return _getContentWidget();
   }
