@@ -57,6 +57,18 @@ void goToHomeScreen(BuildContext context) => WidgetsBinding.instance
       );
 });
 
+// Go to screen ----------------------------------------------------------------
+
+void goTo(String route, BuildContext context, String message) => WidgetsBinding
+    .instance.addPostFrameCallback((timeStamp) {
+      successToast(context, message);
+
+      Navigator.pushReplacementNamed(
+        context,
+        route,
+      );
+});
+
 // Password strength check -----------------------------------------------------
 
 bool isPasswordEnoughStrength(String password) {

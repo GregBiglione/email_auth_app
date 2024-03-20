@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:email_auth_app/app/function.dart';
 import 'package:email_auth_app/domain/utils/state_render.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
+import 'package:email_auth_app/presentation/resource/route_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/forgot_password/forgot_password_viewmodel.dart';
 import 'package:email_auth_app/presentation/screen/auth/forgot_password/widget/forgot_password_content.dart';
@@ -42,11 +43,11 @@ class ForgotPasswordScreen extends StatelessWidget {
               viewModel.isErrorDisplayed = false;
 
               if(response is Success) {
-                successToast(
+                goTo(
+                  Routes.loginRoute,
                   context,
                   StringManager.emailSentSuccessfully,
                 );
-                Navigator.pop(context);
               }
               else if(response is Loading) {
                 return const LoadingScreen();
