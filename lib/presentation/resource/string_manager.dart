@@ -36,5 +36,6 @@ class StringManager {
   // Forgot password screen ----------------------------------------------------
   static const String forgotPasswordTitle = "Forgot password";
   static const String sendEmail = "Send email";
+  static const String emailSentSuccessfully = "Email sent successfully";
 
 }
