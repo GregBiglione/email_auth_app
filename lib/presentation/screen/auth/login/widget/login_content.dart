@@ -30,7 +30,9 @@ class _LoginContentState extends State<LoginContent> {
   }
 
   _onFocusNodeEvent() {
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
