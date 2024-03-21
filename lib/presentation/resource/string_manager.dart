@@ -38,4 +38,6 @@ class StringManager {
   static const String sendEmail = "Send email";
   static const String emailSentSuccessfully = "Email sent successfully";
 
+  // Home screen ---------------------------------------------------------------
+  static const String homeTitle = "Hello ";
 }
