@@ -1,5 +1,6 @@
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/font_manager.dart';
+import 'package:email_auth_app/presentation/resource/route_manager.dart';
 import 'package:email_auth_app/presentation/resource/style_manager.dart';
 import 'package:email_auth_app/presentation/widget/padding_widget.dart';
 import 'package:flutter/gestures.dart';
@@ -40,10 +41,15 @@ class ClickableLinkWidget extends StatelessWidget {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      Navigator.pushNamed(
-                        context,
-                        route,
-                      );
+                      if(route == Routes.registerRoute) {
+                        Navigator.pushNamed(
+                          context,
+                          route,
+                        );
+                      }
+                      else {
+                        Navigator.pop(context);
+                      }
                     }
                 ),
               ]

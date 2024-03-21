@@ -87,6 +87,30 @@ class LoginViewModel extends ChangeNotifier {
         password: _state.password.value,
       );
       _responseController.add(data);
+
+      // Clear fields ----------------------------------------------------------
+      clearEmailField();
+      clearPasswordField();
     }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Clear text field
+  // ---------------------------------------------------------------------------
+
+  void clearEmailField() {
+    _state = _state.copyWith(
+      email: const ValidationItem(
+        value: "",
+      ),
+    );
+  }
+
+  void clearPasswordField() {
+    _state = _state.copyWith(
+      password: const ValidationItem(
+        value: "",
+      ),
+    );
   }
 }
