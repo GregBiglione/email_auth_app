@@ -1,8 +1,12 @@
+import 'package:email_auth_app/app/app_preferences.dart';
+import 'package:email_auth_app/app/di/injection.dart';
 import 'package:email_auth_app/domain/model/user_data.dart';
 import 'package:email_auth_app/domain/repository/auth_repository.dart';
 import 'package:email_auth_app/domain/utils/state_render.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+final AppPreferences _appPreferences = getIt<AppPreferences>();
 
 class AuthRepositoryImplementer implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
@@ -16,6 +20,7 @@ class AuthRepositoryImplementer implements AuthRepository {
         email: userData.email,
         password: userData.password,
       );
+      _appPreferences.setUserLogged();
 
       return Success(credential);
     } on FirebaseAuthException catch (e) {
@@ -30,6 +35,7 @@ class AuthRepositoryImplementer implements AuthRepository {
         email: email,
         password: password,
       );
+      _appPreferences.setUserLogged();
 
       return Success(credential);
     } on FirebaseAuthException catch (e) {
