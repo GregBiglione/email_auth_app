@@ -9,6 +9,9 @@ import 'package:email_auth_app/presentation/resource/style_manager.dart';
 import 'package:email_auth_app/presentation/resource/value_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/app_preferences.dart';
+import '../../../app/di/injection.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,16 +21,27 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Timer? timer;
+  final AppPreferences _appPreferences = getIt<AppPreferences>();
 
   //----------------------------------------------------------------------------
-  // Go to Login screen
+  // Go to Login/Home screen
   //----------------------------------------------------------------------------
 
   _goToLoginScreen() {
-    Navigator.pushReplacementNamed(
-      context,
-      Routes.loginRoute,
-    );
+    _appPreferences.isUserLogged().then((value) {
+      if(value == false) {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.loginRoute,
+        );
+      }
+      else {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.homeRoute,
+        );
+      }
+    });
   }
 
   //----------------------------------------------------------------------------
