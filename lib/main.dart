@@ -6,6 +6,7 @@ import 'package:email_auth_app/presentation/resource/theme_manager.dart';
 import 'package:email_auth_app/presentation/screen/auth/forgot_password/forgot_password_viewmodel.dart';
 import 'package:email_auth_app/presentation/screen/auth/login/login_viewmodel.dart';
 import 'package:email_auth_app/presentation/screen/auth/register/register_viewmodel.dart';
+import 'package:email_auth_app/presentation/screen/home/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +40,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ForgotPasswordViewModel(getIt<AuthUseCase>()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeViewModel(getIt<AuthUseCase>()),
         ),
       ],
       child: MaterialApp(
