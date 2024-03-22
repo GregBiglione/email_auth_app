@@ -1,3 +1,4 @@
+import 'package:email_auth_app/app/function.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/font_manager.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
@@ -30,6 +31,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             onPressed: () {
               viewModel.logout();
+              logoutNavigation(context);
             },
             icon: Icon(
               Icons.logout,
