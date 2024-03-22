@@ -8,4 +8,5 @@ abstract class AuthRepository {
   Future<StateRender> register(UserData userData);
   Future<StateRender> login(String email, String password);
   Future<StateRender> resetPassword(String email);
+  Future<void> logout();
 }
