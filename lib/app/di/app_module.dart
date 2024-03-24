@@ -28,7 +28,7 @@ abstract class AppModule {
 
   @injectable
   AuthRepository get authRepository => AuthRepositoryImplementer(
-      firebaseAuth, usersCollection);
+      firebaseAuth, firebaseFirestore, usersCollection);
 
   // Collection ----------------------------------------------------------------
 
