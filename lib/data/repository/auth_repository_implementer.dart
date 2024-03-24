@@ -1,17 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_auth_app/app/app_preferences.dart';
+import 'package:email_auth_app/app/constant.dart';
 import 'package:email_auth_app/app/di/injection.dart';
 import 'package:email_auth_app/domain/model/user_data.dart';
 import 'package:email_auth_app/domain/repository/auth_repository.dart';
 import 'package:email_auth_app/domain/utils/state_render.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 final AppPreferences _appPreferences = getIt<AppPreferences>();
 
 class AuthRepositoryImplementer implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
+  final CollectionReference _userReference;
 
-  AuthRepositoryImplementer(this._firebaseAuth);
+  AuthRepositoryImplementer(this._firebaseAuth,
+      @Named(USER_COLLECTION) this._userReference);
 
   @override
   Future<StateRender> register(UserData userData) async {
