@@ -1,4 +1,4 @@
-import 'package:email_auth_app/domain/repository/auth_repository.dart';
+import 'package:email_auth_app/domain/repository/auth/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserSessionUseCase {

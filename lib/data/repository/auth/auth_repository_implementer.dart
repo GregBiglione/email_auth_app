@@ -4,7 +4,7 @@ import 'package:email_auth_app/app/constant.dart';
 import 'package:email_auth_app/app/di/injection.dart';
 import 'package:email_auth_app/domain/model/firestore_user.dart';
 import 'package:email_auth_app/domain/model/user_data.dart';
-import 'package:email_auth_app/domain/repository/auth_repository.dart';
+import 'package:email_auth_app/domain/repository/auth/auth_repository.dart';
 import 'package:email_auth_app/domain/utils/state_render.dart';
 import 'package:email_auth_app/presentation/resource/string_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';

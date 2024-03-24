@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:email_auth_app/data/repository/auth_repository_implementer.dart';
-import 'package:email_auth_app/domain/repository/auth_repository.dart';
+import 'package:email_auth_app/data/repository/auth/auth_repository_implementer.dart';
+import 'package:email_auth_app/domain/repository/auth/auth_repository.dart';
 import 'package:email_auth_app/domain/usecase/auth_usecase.dart';
 import 'package:email_auth_app/domain/usecase/login_usecase.dart';
 import 'package:email_auth_app/domain/usecase/logout_usecase.dart';
