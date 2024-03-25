@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../app/function.dart';
-import '../../../../domain/usecase/auth_usecase.dart';
+import '../../../../domain/usecase/auth/auth_usecase.dart';
 import '../../../../domain/utils/state_render.dart';
 import '../../../resource/string_manager.dart';
 import '../../../utils/validation_item.dart';

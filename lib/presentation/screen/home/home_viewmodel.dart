@@ -1,4 +1,4 @@
-import 'package:email_auth_app/domain/usecase/auth_usecase.dart';
+import 'package:email_auth_app/domain/usecase/auth/auth_usecase.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
