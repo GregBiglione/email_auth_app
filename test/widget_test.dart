@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:email_auth_app/app/di/injection.dart';
-import 'package:email_auth_app/domain/usecase/auth_usecase.dart';
+import 'package:email_auth_app/domain/usecase/auth/auth_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

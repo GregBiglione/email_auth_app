@@ -1,6 +1,6 @@
 import 'package:email_auth_app/app/di/injection.dart';
 import 'package:email_auth_app/app/regex.dart';
-import 'package:email_auth_app/domain/usecase/auth_usecase.dart';
+import 'package:email_auth_app/domain/usecase/auth/auth_usecase.dart';
 import 'package:email_auth_app/main.dart';
 import 'package:email_auth_app/presentation/resource/color_manager.dart';
 import 'package:email_auth_app/presentation/resource/route_manager.dart';
