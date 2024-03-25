@@ -1,5 +1,6 @@
 import 'package:email_auth_app/app/di/injection.dart';
 import 'package:email_auth_app/domain/usecase/auth/auth_usecase.dart';
+import 'package:email_auth_app/domain/usecase/user/user_usecase.dart';
 
 import 'package:email_auth_app/presentation/resource/route_manager.dart';
 import 'package:email_auth_app/presentation/resource/theme_manager.dart';
@@ -42,7 +43,10 @@ class MyApp extends StatelessWidget {
           create: (context) => ForgotPasswordViewModel(getIt<AuthUseCase>()),
         ),
         ChangeNotifierProvider(
-          create: (context) => HomeViewModel(getIt<AuthUseCase>()),
+          create: (context) => HomeViewModel(
+            getIt<AuthUseCase>(),
+            getIt<UserUseCase>(),
+          ),
         ),
       ],
       child: MaterialApp(
